@@ -20,7 +20,7 @@ int main(){
     raizS = sqrt(n);
 
     printf("calculo da raiz de %lf: \n", n);
-    printf("por metodo de Newton: %lf\n", raizN);
+    printf("por metodo de Newton: %.*lf\n", 5 , raizN);
     printf("por metodo sqrt: %f\n", raizS);
     }
 
@@ -34,15 +34,12 @@ double Newton(double num){
   double xi, x;
     //coleta do chute
     printf("Escolha um chute inicial para o valor da raiz.\n");
-    scanf("%lf", &xi);
+    scanf("%lf", &x);
 
     //corpo da função
-for (double x=1; x<=xi; x++) {
-        x = xi;
-        do {
-        x = (x-(pow(x, 2)-num)) / (2*x);
-        } while ((fabs(xi - (xi-1))<pow(10, -6)));
-    
+ while ((fabs(x - xi)>pow(10, -6))){
+        xi = x;
+        x = x-(pow(x, 2)-num) / (2*x); 
 }   
-return x;
+    return x;
 }
